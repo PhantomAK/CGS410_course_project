@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data and Results (Large files)
+data/raw/
+data/processed/
+results/*.csv
+results/*.parquet
+results/figures/
+results/tables/
+cache/
+
+# Local configuration
+config.yaml.local
+.env
+
+# AI/Assistant artifacts
+.gemini/
+.antigravity/
+standalone_graph.png
+generate_standalone_graph.py
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
