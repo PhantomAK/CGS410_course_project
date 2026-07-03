@@ -1,0 +1,105 @@
+
+model:
+  name: "facebook/xglm-564M"
+  device: "auto"        
+  batch_size: 16
+  max_length: 512      
+
+
+languages:
+  hindi:
+    treebank: "UD_Hindi-HDTB"
+    type: "case_marking"
+    case_system: "ergative_postpositions"
+    case_markers:
+      postpositions: ["ने", "को", "से", "में", "पर", "के", "का", "की", "तक", "द्वारा"]
+    case_deprel: "case"  
+
+  japanese:
+    treebank: "UD_Japanese-GSD"
+    type: "case_marking"
+    case_system: "particles"
+    case_markers:
+      particles: ["が", "を", "に", "で", "へ", "と", "の", "は", "も", "から", "まで", "より"]
+    case_deprel: "case"
+
+  german:
+    treebank: "UD_German-GSD"
+    type: "case_marking"
+    case_system: "inflectional"
+    case_markers:
+      
+      case_features: ["Nom", "Acc", "Dat", "Gen"]
+    case_deprel: null  
+  korean:
+    treebank: "UD_Korean-GSD"
+    type: "case_marking"
+    case_system: "particles"
+    case_markers:
+      particles: ["이", "가", "을", "를", "에", "에서", "로", "으로", "의", "와", "과", "도"]
+    case_deprel: "case"
+
+  turkish:
+    treebank: "UD_Turkish-BOUN"
+    type: "case_marking"
+    case_system: "agglutinative"
+    case_markers:
+      
+      case_features: ["Nom", "Acc", "Dat", "Gen", "Loc", "Abl", "Ins"]
+    case_deprel: null  
+
+  english:
+    treebank: "UD_English-EWT"
+    type: "non_case_marking"
+
+  chinese:
+    treebank: "UD_Chinese-GSD"
+    type: "non_case_marking"
+
+  indonesian:
+    treebank: "UD_Indonesian-GSD"
+    type: "non_case_marking"
+
+  vietnamese:
+    treebank: "UD_Vietnamese-VTB"
+    type: "non_case_marking"
+
+  french:
+    treebank: "UD_French-GSD"
+    type: "non_case_marking"
+
+
+analysis:
+  
+  argument_deprels:
+    - "nsubj"
+    - "obj"
+    - "iobj"
+    - "obl"
+    - "nsubj:pass"   
+    - "obl:agent"    
+
+  
+  dep_length_bins:
+    - [1, 2]
+    - [3, 4]
+    - [5, 7]
+    - [8, 999]  # 8+
+
+  
+  long_distance_threshold: 3
+
+ 
+  controls:
+    - "word_frequency_log"
+    - "sentence_length"
+    - "position_in_sentence"
+
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  results: "results"
+  figures: "results/figures"
+  tables: "results/tables"
+  cache: "cache"
